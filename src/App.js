@@ -7,7 +7,7 @@ import NavBar from './components/NavBar';
 import Logout from './components/Logout';
 import Login from './components/Login';
 import Home from './components/Home';
-import './App.css';
+import './css/App.css';
 
 function App() {
   const { user } = useAuth0(); 
