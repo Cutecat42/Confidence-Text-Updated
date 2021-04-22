@@ -1,11 +1,11 @@
-import React from 'react';
 import LoginButton from './LoginButton';
+import React from 'react';
 
-const Login = () => {
+const Login = ({setUserAuth}) => {
     return (
         <div>
             Hi
-            <LoginButton />
+            <LoginButton setUserAuth={setUserAuth}/>
         </div>
     )
 }
