@@ -24,10 +24,10 @@ function App() {
           <Logout />
         </Route>
         <Route exact path='/daily'>
-          <DailyQuoteWeb />
+        {!user ? <Redirect to="/" /> : <DailyQuoteWeb/>}
         </Route>
         <Route exact path='/profile'>
-          <Profile />
+        {!user ? <Redirect to="/" /> : <Profile/>}
         </Route>
         <Route exact path='/'>
         {user ? <Redirect to="/daily" /> : <Home/>}
