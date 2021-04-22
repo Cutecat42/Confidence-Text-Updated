@@ -22,6 +22,9 @@ const NavBar = ({user}) => {
             <NavLink exact to='/' className='navBarLink'>
                 Home 
             </NavLink>
+            <NavLink exact to='/daily' className='navBarLink'>
+                Daily Inspirational Quote
+            </NavLink>
             <NavLink exact to='/profile' className='navBarLink'>
                 Profile
             </NavLink>

@@ -1,11 +1,12 @@
 import { BrowserRouter, Route, Redirect } from 'react-router-dom';
+import DailyQuoteWeb from './components/DailyQuoteWeb';
 import { useAuth0 } from '@auth0/auth0-react';
 import React, { useState } from 'react';
-import Profile from './Profile';
-import NavBar from './NavBar';
-import Logout from './Logout';
-import Login from './Login';
-import Home from './Home';
+import Profile from './components/Profile';
+import NavBar from './components/NavBar';
+import Logout from './components/Logout';
+import Login from './components/Login';
+import Home from './components/Home';
 import './App.css';
 
 function App() {
@@ -18,16 +19,18 @@ function App() {
         <NavBar user={user}/>
         <Route exact path='/login'>
           <Login setUserAuth={setUserAuth}/>
-          {/* {user ? <Redirect to="/profile" /> : <Login setUserAuth={setUserAuth}/>} */}
         </Route>
         <Route exact path='/logout'>
           <Logout />
+        </Route>
+        <Route exact path='/daily'>
+          <DailyQuoteWeb />
         </Route>
         <Route exact path='/profile'>
           <Profile />
         </Route>
         <Route exact path='/'>
-        {user ? <Redirect to="/profile" /> : <Home/>}
+        {user ? <Redirect to="/daily" /> : <Home/>}
         </Route>
       </BrowserRouter>
     </div>
