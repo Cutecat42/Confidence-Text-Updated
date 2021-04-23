@@ -18,7 +18,7 @@ function App() {
       <BrowserRouter removeWarning={userAuth}>
         <NavBar user={user}/>
         <Route exact path='/login'>
-          <Login setUserAuth={setUserAuth}/>
+          {user ? <Redirect to="/daily" /> : <Login setUserAuth={setUserAuth}/>}
         </Route>
         <Route exact path='/logout'>
           <Logout />
