@@ -1,11 +1,12 @@
+import ConfidenceTexts from '../database/ConfidenceTexts';
 import React from 'react';
 
 const DailyQuoteWeb = () => {
     return (
         <div>
-            I am an inspiring quote.
+            <ConfidenceTexts />
         </div>
     )
-}
+};
 
 export default DailyQuoteWeb;

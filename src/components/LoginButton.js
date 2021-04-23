@@ -6,8 +6,8 @@ const LoginButton = ({setUserAuth}) => {
     const { user, loginWithRedirect } = useAuth0();
 
     const handleClick = () => {
-        setUserAuth(user)
-        loginWithRedirect()
+        setUserAuth(user);
+        loginWithRedirect();
     };
 
     return (
@@ -17,6 +17,6 @@ const LoginButton = ({setUserAuth}) => {
         </button>
         </>
     )
-}
+};
 
 export default LoginButton;

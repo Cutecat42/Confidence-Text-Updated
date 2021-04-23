@@ -12,6 +12,6 @@ const Logout = () => {
             Logout
         </div>
     )
-}
+};
 
 export default Logout;

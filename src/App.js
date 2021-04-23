@@ -1,10 +1,10 @@
 import { BrowserRouter, Route, Redirect } from 'react-router-dom';
 import DailyQuoteWeb from './components/DailyQuoteWeb';
 import { useAuth0 } from '@auth0/auth0-react';
-import React, { useState } from 'react';
 import Profile from './components/Profile';
 import NavBar from './components/NavBar';
 import Logout from './components/Logout';
+import React, { useState } from 'react';
 import Login from './components/Login';
 import Home from './components/Home';
 import './css/App.css';
@@ -34,7 +34,7 @@ function App() {
         </Route>
       </BrowserRouter>
     </div>
-  );
-}
+  )
+};
 
 export default App;

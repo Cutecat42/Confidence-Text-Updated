@@ -1,7 +1,7 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
 import { Auth0Provider } from '@auth0/auth0-react';
-import './css/index.css'
+import ReactDOM from 'react-dom';
+import React from 'react';
+import './css/index.css';
 import App from './App';
 
 const domain = process.env.REACT_APP_AUTH0_DOMAIN;
@@ -16,4 +16,3 @@ ReactDOM.render(
   </Auth0Provider>,
   document.getElementById('root')
 );
-
