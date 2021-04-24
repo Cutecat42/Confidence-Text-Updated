@@ -1,14 +1,40 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import firebaseConfig from './Config'
-import firebase from "firebase/app";
-import "firebase/firestore";
+import firebase from 'firebase/app';
+import 'firebase/firestore';
 
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 
 const ConfidenceTexts = () => {
+    const [text,setText] = useState('')
+    const [num,setNum] = useState(0)
 
-    const [text,setText] = useState("")
+    useEffect(() => {
+        const number = db.collection('random').doc('num');
+        number.get().then((doc) => {
+            setNum(doc.data().num)
+        });
+    }, [num]);
+
+    useEffect(() => {
+        const docRef = db.collection('texts').doc(`${Number(num)}`);
+        docRef.get().then((doc) => {
+            if (doc.data() !== undefined) {
+                setText(doc.data().text)
+            }
+        });
+    }, [num])
+
+    return (
+        <div>
+            {text}
+        </div>
+    )
+};
+
+export default ConfidenceTexts;
+
 
     //***testing adding data to database***
     // db.collection("users").doc('test').set({
@@ -39,17 +65,16 @@ const ConfidenceTexts = () => {
     //     console.error("Error adding document: ", error);
     // });
 
-    const docRef = db.collection("texts").doc('2');
+    // let rand = Math.floor(Math.random() * 2) + 1;
 
-    docRef.get().then((doc) => {
-        setText(doc.data().text)
-    });
+    // const number = db.collection("random").doc('num');
 
-    return (
-        <div>
-            {text}
-        </div>
-    )
-};
+    // number.get().then((doc) => {
+    //     setNum(doc.data().num)
+    // });
 
-export default ConfidenceTexts;
+    // const docRef = db.collection("texts").doc(num);
+
+    // docRef.get().then((doc) => {
+    //     setText(doc.data().text)
+    // });

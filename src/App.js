@@ -30,7 +30,7 @@ function App() {
         {!user ? <Redirect to="/" /> : <Profile/>}
         </Route>
         <Route exact path='/'>
-        {user ? <Redirect to="/daily" /> : <Home/>}
+        {user ? <Redirect to='/daily' /> : <Home/>}
         </Route>
       </BrowserRouter>
     </div>
