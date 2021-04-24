@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link }from 'react-router-dom';
 import firebaseConfig from './Config'
 import firebase from 'firebase/app';
 import 'firebase/firestore';
@@ -29,6 +30,8 @@ const ConfidenceTexts = () => {
     return (
         <div>
             {text}
+            <br></br>
+            <p>Click {<Link exact to='/all' className=''>here </Link>} if you would like to see a list of all affirmations.</p>
         </div>
     )
 };

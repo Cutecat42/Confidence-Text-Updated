@@ -9,10 +9,10 @@ const randomNumber =  (() => {
     .then(() => console.log("Random number generated"))
 })
 
-exports.scheduledFunction = functions.pubsub.schedule("every 5 minutes").onRun(() => {
-  console.log("This will be run every 5 minutes!");
+exports.scheduledFunction = functions.pubsub.schedule("0 13 * * *").onRun(() => {
+  console.log("This will be run every day at 1 pm UTC!");
   number = {
-      num: String(Math.round(Math.random()*2)+1)
+      num: String(Math.round(Math.random()*100)+1)
   }
   return randomNumber(number);
 });

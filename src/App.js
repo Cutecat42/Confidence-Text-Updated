@@ -1,6 +1,8 @@
-import { BrowserRouter, Route, Redirect } from 'react-router-dom';
+import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
 import DailyQuoteWeb from './components/DailyQuoteWeb';
+import AllQuotes from './components/AllQuotes';
 import { useAuth0 } from '@auth0/auth0-react';
+import NotFound from './components/NotFound';
 import Profile from './components/Profile';
 import NavBar from './components/NavBar';
 import Logout from './components/Logout';
@@ -16,22 +18,31 @@ function App() {
   return (
     <div className='App'>
       <BrowserRouter removeWarning={userAuth}>
-        <NavBar user={user}/>
-        <Route exact path='/login'>
-          {user ? <Redirect to="/daily" /> : <Login setUserAuth={setUserAuth}/>}
-        </Route>
-        <Route exact path='/logout'>
-          <Logout />
-        </Route>
-        <Route exact path='/daily'>
-        {!user ? <Redirect to="/" /> : <DailyQuoteWeb/>}
-        </Route>
-        <Route exact path='/profile'>
-        {!user ? <Redirect to="/" /> : <Profile/>}
-        </Route>
-        <Route exact path='/'>
-        {user ? <Redirect to='/daily' /> : <Home/>}
-        </Route>
+          <NavBar user={user}/>
+            <Switch>
+              <Route exact path='/login'>
+                {user ? <Redirect to="/daily" /> : <Login setUserAuth={setUserAuth}/>}
+              </Route>
+              <Route exact path='/logout'>
+                <Logout />
+              </Route>
+              <Route exact path='/daily'>
+                {!user ? <Redirect to="/" /> : <DailyQuoteWeb />}
+              </Route>
+              <Route exact path='/profile'>
+                {!user ? <Redirect to="/" /> : <Profile />}
+              </Route>
+              <Route exact path='/all'>
+                {!user ? <Redirect to="/" /> : <AllQuotes />}
+              </Route>
+              <Route exact path='/'>
+                {user ? <Redirect to='/daily' /> : <Home />}
+              </Route>
+              <Route>
+                <Redirect from='*' to='/404' />
+                <NotFound />
+              </Route>
+            </Switch>
       </BrowserRouter>
     </div>
   )
