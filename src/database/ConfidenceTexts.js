@@ -31,12 +31,16 @@ const ConfidenceTexts = () => {
         <div>
             {text}
             <br></br>
+            <br></br>
             <p>Click {<Link exact to='/all' className=''>here </Link>} if you would like to see a list of all affirmations.</p>
         </div>
     )
 };
 
 export default ConfidenceTexts;
+export {
+    db
+};
 
 
     //***testing adding data to database***
