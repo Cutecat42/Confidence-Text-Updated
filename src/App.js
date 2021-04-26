@@ -6,6 +6,7 @@ import NotFound from './components/NotFound';
 import Profile from './components/Profile';
 import NavBar from './components/NavBar';
 import Logout from './components/Logout';
+import Signup from './components/Signup';
 import React, { useState } from 'react';
 import Login from './components/Login';
 import Home from './components/Home';
@@ -37,6 +38,9 @@ function App() {
               </Route>
               <Route exact path='/'>
                 {user ? <Redirect to='/daily' /> : <Home />}
+              </Route>
+              <Route exact path='/signup'>
+                {!user ? <Redirect to='/' /> : <Signup />}
               </Route>
               <Route>
                 <Redirect from='*' to='/404' />

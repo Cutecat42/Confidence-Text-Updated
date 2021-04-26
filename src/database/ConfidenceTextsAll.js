@@ -29,7 +29,7 @@ const ConfidenceTextsAll = () => {
     return (
         <div className='container border border-dark'>
             <ul className='list-unstyled mt-2'>
-            {texts.map((x,i) => <li key={i}>{x}</li>)}
+            {texts.map((x,i) => <li key={i}>*{x}</li>)}
             </ul>
         </div>
     )

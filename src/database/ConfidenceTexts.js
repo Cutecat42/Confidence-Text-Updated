@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useAuth0 } from '@auth0/auth0-react';
 import { Link }from 'react-router-dom';
 import firebaseConfig from './Config'
 import firebase from 'firebase/app';
@@ -32,14 +33,59 @@ const ConfidenceTexts = () => {
             {text}
             <br></br>
             <br></br>
-            <p>Click {<Link exact to='/all' className=''>here </Link>} if you would like to see a list of all affirmations.</p>
+            <p>Click {<Link exact to='/all'>here </Link>} if you would like to see a list of all affirmations.</p>
+            <p>Please go to your <Link exact to='/profile'>profile</Link> to either request a text a day or verify 
+            you should be getting one.</p>
         </div>
     )
 };
 
+const Users = (data) => {
+    const { user } = useAuth0();
+    db.collection('users').doc(`${user.sub}`).set({
+        name: `${data.name}`,
+        email: `${data.email}`,
+        phone: `${data.phone}`,
+        payment: `${data.payment}`,
+        paid: false,
+        created: new Date()
+    })
+    .then((docRef) => {
+        console.log('Document written with ID: ', docRef.id);
+    })
+    .catch((error) => {
+        console.error('Error adding document: ', error);
+    });
+
+    return (
+        data
+    )
+};
+
+const UsersCheck = (data) => {
+    const { user} = useAuth0();
+    const [paid,setPaid] = useState('')
+
+    useEffect(() => {
+        const u = db.collection('users').doc(`${user.sub}`);
+        u.get().then((doc) => {
+            console.log(doc.data().paid)
+            if (doc.data().paid === false) {
+                setPaid(false)
+            }
+            else {
+                setPaid(true)
+            }
+        })
+    }, [paid])
+    return paid
+};
+
 export default ConfidenceTexts;
 export {
-    db
+    db,
+    Users,
+    UsersCheck
 };
 
 
