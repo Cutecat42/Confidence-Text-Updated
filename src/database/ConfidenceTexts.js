@@ -30,12 +30,12 @@ const ConfidenceTexts = () => {
 
     return (
         <div>
-            {text}
+            <p className='border border-dark' style={{width: '30vw', marginLeft: '35vw', padding: '5px'}}>{text}</p>
             <br></br>
             <br></br>
             <p>Click {<Link exact to='/all'>here </Link>} if you would like to see a list of all affirmations.</p>
-            <p>Please go to your <Link exact to='/profile'>profile</Link> to either request a text a day or verify 
-            you should be getting one.</p>
+            <p>Please go to your <Link exact to='/profile'>profile</Link> to either request a text a day or confirm 
+            if you should be getting one.</p>
         </div>
     )
 };

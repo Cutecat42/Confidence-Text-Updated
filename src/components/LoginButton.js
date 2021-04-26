@@ -12,7 +12,9 @@ const LoginButton = ({setUserAuth}) => {
 
     return (
         <>
-        <button onClick={handleClick}>
+        <br></br>
+        <br></br>
+        <button onClick={handleClick} className='btn btn-secondary'>
             Log In
         </button>
         </>

@@ -4,7 +4,9 @@ import React from 'react';
 const DailyQuoteWeb = () => {
     return (
         <div>
-            <p>This quote will be updated every day at 1 pm UTC.</p>
+            <br></br>
+            <h6>This quote will be updated every day at 1 pm UTC.</h6>
+            <br></br>
             <br></br>
             <ConfidenceTexts />
         </div>

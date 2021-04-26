@@ -25,20 +25,21 @@ const SignupForm = ({setData}) => {
     
     return (
         <form onSubmit={setDataForParent}>
+            <div class="form-group">
+                <label htmlFor="name">What is your name? </label> &nbsp;
+                <input type="text" onChange={handleChange} id="name" name="name" value={formData.name} required/>
 
-        <label htmlFor="name">What is your name?</label>
-        <input type="text" onChange={handleChange} id="name" name="name" value={formData.name}/>
+                <label htmlFor="email">What is your email? </label> &nbsp;
+                <input type="text" onChange={handleChange} id="email" name="email" value={formData.email} required/>
+                
+                <label htmlFor="phone">What is the phone number you'll like to receieve a text on every day? </label>
+                <input type="text" onChange={handleChange} id="phone" name="phone" value={formData.phone} required/>
 
-        <label htmlFor="email">What is your email?</label>
-        <input type="text" onChange={handleChange} id="email" name="email" value={formData.email}/>
-        
-        <label htmlFor="phone">What is the phone number you'll like to receieve a text on every day?</label>
-        <input type="text" onChange={handleChange} id="phone" name="phone" value={formData.phone}/>
-
-        <label htmlFor="payment">What is the CashApp ID that you'll be using to pay with?</label>
-        <input type="text" onChange={handleChange} id="payment" name="payment" value={formData.payment}/>
-
-        <button>Request a text a day!</button>
+                <label htmlFor="payment">What is the CashApp ID that you'll be using to pay with? </label>
+                <input type="text" onChange={handleChange} id="payment" name="payment" value={formData.payment} className='mb-2' required/>
+                <br></br>
+                <button className='btn btn-secondary'>Request a text a day!</button>
+            </div>
         </form>
     )
 };
